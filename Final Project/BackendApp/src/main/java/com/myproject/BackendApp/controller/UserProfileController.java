@@ -33,7 +33,6 @@ public class UserProfileController {
         }
     }
 
-
     @PutMapping("/{id}")
     public ResponseEntity<String> updateProfile(@PathVariable String id, @RequestBody UserProfile updatedProfile) throws UserNotFound {
         return ResponseEntity.ok(userProfileService.updateUserProfile(id, updatedProfile));

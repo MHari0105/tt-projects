@@ -1,4 +1,4 @@
-package com.myproject.BackendApp.model;
+package com.myproject.BackendApp.dto;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -15,7 +15,6 @@ public class Poll {
 
     @Id
     private String id;
-    private String postId;
-    private String pollType;
+    private String pollType;        // LOW, MODERATE, HIGH
 
 }

@@ -8,4 +8,5 @@ import com.myproject.BackendApp.model.Post;
 @Repository
 public interface PostsRepository extends MongoRepository<Post, String> {
     
+    
 }

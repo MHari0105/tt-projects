@@ -15,7 +15,8 @@ public class CompletedTasks {
     
     @Id
     private String id;
-    private String taskId; 
+    private String postId; 
+    private String profileId;
     private String higherOfficialId;
     private String supervisorId;
     private String pinCode;

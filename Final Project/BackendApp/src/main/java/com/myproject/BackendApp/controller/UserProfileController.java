@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.myproject.BackendApp.exception.UserNotFound;
 import com.myproject.BackendApp.model.UserProfile;
-import com.myproject.BackendApp.security.user.User;
 import com.myproject.BackendApp.service.UserProfileService;
 
 @RestController
@@ -22,10 +21,10 @@ public class UserProfileController {
     @Autowired
     private UserProfileService userProfileService;
 
-    @PostMapping
-    public ResponseEntity<String> createUserProfile(@RequestBody User user) {
+    @PostMapping("/{userId}")
+    public ResponseEntity<String> createUserProfile(@PathVariable String userId, @RequestBody UserProfile userProfile) {
         try {
-            String message = userProfileService.createUserProfile(user);
+            String message = userProfileService.createUserProfile(userId, userProfile);
             return ResponseEntity.status(HttpStatus.CREATED).body(message);
         }
         catch (Exception e) {

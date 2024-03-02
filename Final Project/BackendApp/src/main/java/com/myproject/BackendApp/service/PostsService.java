@@ -7,9 +7,10 @@ import com.myproject.BackendApp.model.Post;
 
 public interface PostsService {
     
-    public Post createPost(Post post);
-    public List<Post> getAllPosts();
-    public Post updatePost(String postId, Post post) throws NotFoundException;
-    public String deletePost(String postId);
+    public Post createPost(String userId, Post post) throws NotFoundException;
+    public List<Post> getAllPosts(String userId);
+    public Post userUpdatePost(String postId, Post post) throws NotFoundException;
+    public Post updatePostStatus(String postId, Post post) throws NotFoundException;
+    public String deletePost(String userId, String postId);
 
 }

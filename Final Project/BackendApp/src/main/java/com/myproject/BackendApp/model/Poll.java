@@ -1,20 +1,22 @@
-package com.myproject.BackendApp.dto;
+package com.myproject.BackendApp.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.Data;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Document(collection = "poll")
+@Document(collection ="polls")
 public class Poll {
-
+    
     @Id
     private String id;
-    private String pollType;        // LOW, MODERATE, HIGH
+    private String profileId;
+    private String postId;
+    private String pollvalue;
 
 }

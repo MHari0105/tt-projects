@@ -25,24 +25,24 @@ public class PostController {
     @Autowired
     private PostsService postService;
 
-    @PostMapping
-    public ResponseEntity<Post> createPost(@RequestBody Post post) {
-        return new ResponseEntity<>(postService.createPost(post), HttpStatus.CREATED);
+    @PostMapping("/{userId}")
+    public ResponseEntity<Post> createPost(@PathVariable String userId, @RequestBody Post post) throws NotFoundException {
+        return new ResponseEntity<>(postService.createPost(userId, post), HttpStatus.CREATED);
     }
 
-    @GetMapping
-    public ResponseEntity<List<Post>> getAllPosts() {
-        return new ResponseEntity<>(postService.getAllPosts(), HttpStatus.OK);
+    @GetMapping("/{userId}")
+    public ResponseEntity<List<Post>> getAllPosts(@PathVariable String userId) {
+        return new ResponseEntity<>(postService.getAllPosts(userId), HttpStatus.OK);
     }
 
     @PutMapping
     public ResponseEntity<Post> updateDescription(@PathVariable String postId, @RequestBody Post post) throws NotFoundException {
-        return new ResponseEntity<>(postService.updatePost(postId, post), HttpStatus.OK);
+        return new ResponseEntity<>(postService.userUpdatePost(postId, post), HttpStatus.OK);
     }
 
-    @DeleteMapping
-    public ResponseEntity<String> deletePost(@PathVariable String postId) {
-        return new ResponseEntity<>(postService.deletePost(postId), HttpStatus.OK);
+    @DeleteMapping("/{profileId}/{postId}")
+    public ResponseEntity<String> deletePost(@PathVariable String profileId, @PathVariable String postId) {
+        return new ResponseEntity<>(postService.deletePost(profileId, postId), HttpStatus.OK);
     }
     
 }

@@ -21,5 +21,11 @@ public class Post {
     private String postImage;
     private String description;
     private Date dateTime;
+    private Integer lowPoll;
+    private Integer moderatePoll;
+    private Integer dangerPoll;
+    private Integer totalPollCounts;
+    private String postStatus;
+    private Integer pinCode;
 
 }

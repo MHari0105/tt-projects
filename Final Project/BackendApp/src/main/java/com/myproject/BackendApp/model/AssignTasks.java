@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 public class AssignTasks {
     
     private String id;
-    private String postId;        // ADD POST IDs
-    private String superviorId;
+    private String postId;   
+    private String profileId;
 
 }

@@ -3,7 +3,7 @@ package com.myproject.BackendApp.security.user;
 public enum Role {
 
     PUBLIC,
-    COUNCILOR,
+    HIGHER_OFFICIAL,
     SUPERVISOR,
     WORKER,
     ADMIN

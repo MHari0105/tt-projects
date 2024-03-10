@@ -2,19 +2,25 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { environment } from '../environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  private baseUrl = "http://localhost:8080/user";
-  private authUrl = "http://localhost:8080/api/auth";
+  private baseUrl = '';
+  private authUrl: string = '';
+  private transactionUrl: string = ''
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {4
+    this.baseUrl = `${environment.userUrl}`
+    this.authUrl = `${environment.authUrl}`;
+    this.transactionUrl = `${environment.paymentUrl}`
+  }
 
   public createTransaction(amount: number) {
-    return this.httpClient.get("http://localhost:8080/pay/createTransaction/" + amount);
+    return this.httpClient.get(this.transactionUrl + amount);
   }
 
   signUpUser(signupForm: FormGroup): Observable<any> {

@@ -8,7 +8,7 @@ import { FileData } from '../models/file-data';
 })
 export class ImageService {
   
-  private baseUrl='http://localhost:8080/image/fileSystem';
+  private baseUrl: string = '';
 
   constructor(private http: HttpClient) { }
 

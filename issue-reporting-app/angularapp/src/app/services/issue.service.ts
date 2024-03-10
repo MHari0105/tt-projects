@@ -2,15 +2,18 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Issue } from '../models/issue';
 import { Observable } from 'rxjs';
+import { environment } from '../environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class IssueService {
 
-  private baseUrl='http://localhost:8080/issue';
+  private baseUrl: string = '';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.baseUrl = `${environment.issueUrl}`
+  }
 
   public getIssues(): Observable<Issue[]> {
     const url = `${this.baseUrl}`

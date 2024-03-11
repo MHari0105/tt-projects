@@ -42,9 +42,9 @@ export class AdminHomeComponent {
   }
   
   setIssue(issue:Issue) {
-    this.getPolls(issue.issueId);
+    this.getPolls(issue.id);
     this.issue=issue;
-    this.imageService.getImage(issue.issueId).subscribe(
+    this.imageService.getImage(issue.id).subscribe(
       (response:FileData)=>{
         this.url = 'assets/post_datas/'+response.name;
       },
@@ -67,7 +67,7 @@ export class AdminHomeComponent {
   }
 
   public issue:Issue={
-    issueId: '',
+    id: '',
     userId: this.userId ? this.userId.toString() : '',
     location: '',
     landmark: '',
@@ -77,7 +77,7 @@ export class AdminHomeComponent {
   }
 
   public deleteIssue:Issue={
-    issueId: '',
+    id: '',
     userId: this.userId ? this.userId.toString() : '',
     location: '',
     landmark: '',
@@ -92,7 +92,7 @@ export class AdminHomeComponent {
 
   public onAddIssue(addForm: NgForm): void {
     var addIssue: Issue = {
-      issueId: '',
+      id: '',
       userId: this.userId ? this.userId.toString() : '',
       location: '',
       landmark: '',

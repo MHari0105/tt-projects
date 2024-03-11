@@ -50,9 +50,11 @@ export class HomeComponent  {
   }
   
   setIssue(issue: Issue) {
-    this.getPolls(issue.issueId);
+    console.log(issue);
+    
+    this.getPolls(issue.id);
     this.issue = issue;
-    this.imageService.getImage(issue.issueId).subscribe(
+    this.imageService.getImage(issue.id).subscribe(
       (response:FileData)=>{
         this.url = 'assets/post_datas/' + response.name;
       },
@@ -74,7 +76,7 @@ export class HomeComponent  {
   }
 
   public issue:Issue={
-    issueId: '',
+    id: '',
     userId: '',
     location: '',
     landmark: '',
@@ -85,7 +87,7 @@ export class HomeComponent  {
 
   public onAddIssue(addForm: NgForm): void {
     var addIssue: Issue = {
-      issueId: '',
+      id: '',
       userId: '',
       location: '',
       landmark: '',
@@ -135,11 +137,11 @@ export class HomeComponent  {
     pollOption: ''
   };
 
-  severe:number = 0;
-  moderate:number = 0;
-  mild:number = 0;
-  totalCount:number = 0;
-  disabled:boolean = false;
+  severe: number = 0;
+  moderate: number = 0;
+  mild: number = 0;
+  totalCount: number = 0;
+  disabled: boolean = false;
 
   getPolls(issueId: string | undefined) {
     this.poll.issueId = issueId;

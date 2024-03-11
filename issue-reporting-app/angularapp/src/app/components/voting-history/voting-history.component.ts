@@ -26,7 +26,7 @@ export class VotingHistoryComponent {
 
   polls:Poll[] = [];
   issue: Issue = {
-    issueId: '',
+    id: '',
     userId: '',
     location: '',
     landmark: '',

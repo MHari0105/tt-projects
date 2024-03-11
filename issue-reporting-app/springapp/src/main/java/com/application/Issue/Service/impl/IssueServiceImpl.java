@@ -9,7 +9,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-import javax.naming.NameNotFoundException;
 
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -79,7 +78,7 @@ public class IssueServiceImpl implements IssueService {
             Issue existing = existingIssue.get();
             existing.setLandmark(issue.getLandmark());
             existing.setIssue(issue.getIssue());
-
+            
             return issueRepo.save(existing);
         }
 

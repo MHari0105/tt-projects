@@ -21,7 +21,7 @@ export class IssueComponent {
   public location = localStorage.getItem('location');
 
   public issue: Issue = {
-    issueId: '',
+    id: '',
     userId: '',
     location: '',
     landmark: '',
@@ -31,7 +31,7 @@ export class IssueComponent {
   };
 
   public editIssue: Issue = {
-    issueId: '',
+    id: '',
     userId: '',
     location: '',
     landmark: '',
@@ -41,7 +41,7 @@ export class IssueComponent {
   };
 
   public deleteIssue: Issue = {
-    issueId: '',
+    id: '',
     userId: '',
     location: '',
     landmark: '',
@@ -66,10 +66,10 @@ export class IssueComponent {
   
   url!: string;
 
-  setIssue(issue:Issue){
+  setIssue(issue: Issue){
     this.issue = issue;
-    this.getPollsByIssueId(issue.issueId);
-    this.imageService.getImage(issue.issueId).subscribe(
+    this.getPollsByIssueId(issue.id);
+    this.imageService.getImage(issue.id).subscribe(
       (response:FileData)=>{
         this.url = 'assets/post_datas/'+response.name;
       },
@@ -82,6 +82,8 @@ export class IssueComponent {
   public getIssues(): void {
     this.issueService.getIssuesByUserId().subscribe(
       (response: Issue[]) => {
+        console.log(response);
+        
         this.issues = response;
       },
       (error: HttpErrorResponse) => {
@@ -96,7 +98,7 @@ export class IssueComponent {
 
   public onAddIssue(addForm: NgForm): void {
     let addIssue: Issue = {
-      issueId: '',
+      id: '',
       userId: this.userId ? this.userId.toString() : '',
       location: this.location !== null ? this.location?.toString() : '',
       landmark: '',
@@ -122,7 +124,7 @@ export class IssueComponent {
   }
 
   public onUpdateIssue(issue: Issue): void {
-    this.issueService.updateIssue(issue).subscribe(
+    this.issueService.updateIssue(issue.id!, issue).subscribe(
       (response: Issue) => {
         console.log(response);
         this.getIssues();

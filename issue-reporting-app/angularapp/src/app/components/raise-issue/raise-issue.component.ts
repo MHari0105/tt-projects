@@ -24,7 +24,7 @@ export class RaiseIssueComponent {
 
   public onAddIssue(addForm: NgForm): void {
     var addIssue: Issue = {
-      issueId: '',
+      id: '',
       userId: '',
       location: '',
       landmark: '',

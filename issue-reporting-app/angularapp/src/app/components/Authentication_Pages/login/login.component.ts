@@ -30,7 +30,6 @@ export class LoginComponent {
     })
   }
 
-  //to view the password typed
   onpassclick() {
     this.isText = !this.isText;
     if (this.isText) {

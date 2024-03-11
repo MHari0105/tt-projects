@@ -1,5 +1,5 @@
 export interface Issue {
-    issueId?: string | undefined;
+    id?: string | undefined;
     userId: string;
     location: string;
     landmark: string;

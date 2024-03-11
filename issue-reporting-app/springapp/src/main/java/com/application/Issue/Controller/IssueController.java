@@ -43,9 +43,10 @@ public class IssueController {
         return new ResponseEntity<>(newIssue, HttpStatus.CREATED);
     }
 
-    @PutMapping("/update")
+    @PutMapping("/update/{issueId}")
     public ResponseEntity<Issue> updateIssue(@PathVariable String issueId, @RequestBody Issue issue) {
         Issue updatedIssue = issueService.updateIssue(issueId, issue);
+        System.out.println(updatedIssue);
         return new ResponseEntity<>(updatedIssue, HttpStatus.OK);
     }
 

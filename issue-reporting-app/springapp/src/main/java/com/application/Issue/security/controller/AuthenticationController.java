@@ -36,8 +36,8 @@ public class AuthenticationController {
         var response = authService.register(request);
         if (request.isMfaEnabled()) 
             return ResponseEntity.ok(response);
-        
-        return ResponseEntity.accepted().build();
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        // return ResponseEntity.ok().build();
     }
 
     @PostMapping("/login")

@@ -45,19 +45,19 @@ public class AuthenticationService {
             user.setSecret(tfaService.generateNewSecret());
         }
 
-        userRepo.save(user);
+        User savedUser = userRepo.save(user);
 
         Map<String, Object> extraClaims = new HashMap<>();
-        extraClaims.put("Authorities", user.getAuthorities());
-        extraClaims.put("location", user.getLocation());
-        extraClaims.put("userId", user.getId());
+        extraClaims.put("Authorities", savedUser.getAuthorities());
+        extraClaims.put("location", savedUser.getLocation());
+        extraClaims.put("userId", savedUser.getId());
 
-        System.out.println(user.getAuthorities());
-        String jwtToken = jwtService.generateToken(extraClaims, user);
+        System.out.println(savedUser.getAuthorities());
+        String jwtToken = jwtService.generateToken(extraClaims, savedUser);
         return AuthenticationResponse.builder()
-                .secretImageUri(tfaService.generateQrCodeImageUri(user.getSecret()))
+                .secretImageUri(tfaService.generateQrCodeImageUri(savedUser.getSecret()))
                 .token(jwtToken)
-                .mfaEnabled(user.isMfaEnabled())
+                .mfaEnabled(savedUser.isMfaEnabled())
                 .build();
     }
 

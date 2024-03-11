@@ -25,8 +25,8 @@ export class IssueService {
     return this.http.post<Issue>(url, issue);
   }
 
-  public updateIssue(issue: Issue): Observable<Issue> {
-    const url = `${this.baseUrl}/update`
+  public updateIssue(issueId: string, issue: Issue): Observable<Issue> {
+    const url = `${this.baseUrl}/update/${issueId}`
     return this.http.put<Issue>(url, issue);
   }
 

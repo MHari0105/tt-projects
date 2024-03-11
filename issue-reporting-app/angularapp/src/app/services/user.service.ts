@@ -9,14 +9,12 @@ import { environment } from '../environments/environment.development';
 })
 export class UserService {
 
-  private baseUrl = '';
-  private authUrl: string = '';
-  private transactionUrl: string = ''
+  private baseUrl = 'http://localhost:8080/user';
+  private authUrl: string = 'http://localhost:8080/api/auth';
+  private transactionUrl: string = 'http://localhost:8080/pay/createTransaction'
 
-  constructor(private httpClient: HttpClient) {4
-    this.baseUrl = `${environment.userUrl}`
-    this.authUrl = `${environment.authUrl}`;
-    this.transactionUrl = `${environment.paymentUrl}`
+  constructor(private httpClient: HttpClient) {
+    
   }
 
   public createTransaction(amount: number) {

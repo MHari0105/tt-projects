@@ -157,7 +157,7 @@
           <div class="form-group">
             <input
               type="hidden"
-              ngModel="{{ editIssue.issueId }}"
+              ngModel="{{ editIssue.id }}"
               name="issueId"
               class="form-control"
               id="issueId"
@@ -282,7 +282,7 @@
           type="button"
           class="btn btn-primary"
           (click)="closeDeleteModal()"
-          (click)="onDeleteIssue(deleteIssue.issueId)"
+          (click)="onDeleteIssue(deleteIssue.id)"
         >
           Yes
         </button>
@@ -312,7 +312,7 @@
         ></button>
       </div>
       <div class="modal-body">
-        <h6 class="my-3"><b>Issue ID: </b>{{ issue.issueId }}</h6>
+        <h6 class="my-3"><b>Issue ID: </b>{{ issue.id }}</h6>
         <h6 class="my-3"><b>Issue Type: </b>{{ issue.issueType }}</h6>
         <h6 class="my-3"><b>Issue Location: </b>{{ issue.location }}</h6>
         <h6 class="my-3"><b>Landmark: </b>{{ issue.landmark }}</h6>

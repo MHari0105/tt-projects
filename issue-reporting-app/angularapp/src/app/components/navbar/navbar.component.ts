@@ -52,7 +52,7 @@ export class NavbarComponent {
   
   setIssue(issue: Issue){
     this.issue = issue;
-    this.imageService.getImage(issue.issueId).subscribe(
+    this.imageService.getImage(issue.id).subscribe(
       (response: FileData)=>{
         this.url = 'assets/post_datas/' + response.name;
       },
@@ -75,7 +75,7 @@ export class NavbarComponent {
   }
 
   public issue: Issue = {
-    issueId: '3',
+    id: '3',
     userId: '1',
     location: 'this area',
     landmark: 'this area',
